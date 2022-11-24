@@ -6,5 +6,30 @@
 
 >Expression trees are also used in the dynamic language runtime (DLR) to provide interoperability between dynamic languages and .NET and to enable compiler writers to emit expression trees instead of Microsoft intermediate language (MSIL).
 ---
+## Expression Trees from Lambda Expressions
+`Expression<Func<int, bool>> lambda = num => num < 5;`
+## Expression Trees by Using the API
+```csharp
+ParameterExpression numParam = Expression.Parameter(typeof(int), "num");  
+ConstantExpression five = Expression.Constant(5, typeof(int));  
+BinaryExpression numLessThanFive = Expression.LessThan(numParam, five);  
+Expression<Func<int, bool>> lambda1 =  
+    Expression.Lambda<Func<int, bool>>(  
+        numLessThanFive,  
+        new ParameterExpression[] { numParam });  
+```
+---
+## Code Transformation
+```mermaid
+flowchart LR;
+style A fill:#008080,stroke:#fff,stroke-width:1px
+style B fill:#006666,stroke:#fff,stroke-width:1px
+style C fill:#004c4c,stroke:#fff,stroke-width:1px
+
+    A(C# Code)-- Compiler -->B(MSIL Code);    
+    B-- JIT -->C(Native Code);
+```
+
+---
 * Links
   - [Expression Trees (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
