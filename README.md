@@ -22,9 +22,9 @@ Expression<Func<int, bool>> lambda1 =
 ## Code Transformation
 ```mermaid
 flowchart LR;
-style A fill:#008080,stroke:#fff,stroke-width:1px,textColor:#fff
-style B fill:#006666,stroke:#fff,stroke-width:1px,textColor:#fff
-style C fill:#004c4c,stroke:#fff,stroke-width:1px,textColor:#fff
+style A fill:#008080,stroke:#fff,stroke-width:1px,color:#fff
+style B fill:#006666,stroke:#fff,stroke-width:1px,color:#fff
+style C fill:#004c4c,stroke:#fff,stroke-width:1px,color:#fff
 
     A(C# Code)-- Compiler -->B(MSIL Code);    
     B-- JIT -->C(Native Code);
