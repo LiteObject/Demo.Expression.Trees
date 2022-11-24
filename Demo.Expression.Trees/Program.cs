@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Demo.Expressions
+namespace Demo.Expression.Trees
 {
     /// <summary>
     /// This programs contains simple examples to demostrate the Example class.
