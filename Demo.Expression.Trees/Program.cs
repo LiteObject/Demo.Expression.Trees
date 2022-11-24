@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
+using Expression = System.Linq.Expressions.Expression;
 
-namespace Demo.Expression.Trees
+namespace Demo.MyExpression.Trees
 {
     /// <summary>
     /// This programs contains simple examples to demostrate the Example class.
@@ -44,7 +45,7 @@ namespace Demo.Expression.Trees
             //Console.WriteLine(binaryExpression.Right);
 
             // Example 2: Identical to Example 1
-            Expression<Func<int, bool>> isNegativeExp2 = Expression.Lambda<Func<int, bool>>(binaryExpression, parameterExpression);
+            Expression<Func<int, bool>> isNegativeExp2 = System.Linq.Expressions.Expression.Lambda<Func<int, bool>>(binaryExpression, parameterExpression);
             Console.WriteLine(isNegativeExp2.Body);
             Func<int, bool> isNegativeFunc2 = isNegativeExp2.Compile();
             Console.WriteLine(isNegativeFunc2(4));
