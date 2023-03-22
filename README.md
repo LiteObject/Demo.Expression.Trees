@@ -5,6 +5,8 @@
 >You can compile and run code represented by expression trees. This enables dynamic modification of executable code, the execution of LINQ queries in various databases, and the creation of dynamic queries.
 
 >Expression trees are also used in the dynamic language runtime (DLR) to provide interoperability between dynamic languages and .NET and to enable compiler writers to emit expression trees instead of Microsoft intermediate language (MSIL).
+
+>A language is _homoiconic_ if a program written in it can be manipulated as data using the language, and thus the program's internal representation can be inferred just by reading the program itself. This property is often summarized by saying that the language treats code as data. - Wiki
 ---
 ## Expression Trees from Lambda Expressions
 `Expression<Func<int, bool>> lambda = num => num < 5;`
