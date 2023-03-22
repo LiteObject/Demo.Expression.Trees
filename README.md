@@ -8,6 +8,12 @@
 
 >A language is _homoiconic_ if a program written in it can be manipulated as data using the language, and thus the program's internal representation can be inferred just by reading the program itself. This property is often summarized by saying that the language treats code as data. - Wiki
 ---
+## BinaryExpression
+* Left Expression -> NodeType (Equal, NotEqual, etc.) -> Right Expression
+ 
+## ExpressionVisitor
+* Read each piece of the expression and operates
+---
 ## Expression Trees from Lambda Expressions
 `Expression<Func<int, bool>> lambda = num => num < 5;`
 ## Expression Trees by Using the API
