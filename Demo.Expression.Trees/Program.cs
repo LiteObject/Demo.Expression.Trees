@@ -67,6 +67,13 @@ namespace Demo.MyExpression.Trees
             {
                 Console.WriteLine(expr.ToString());
             }
+
+            Expression<Func<string, string>> magicSring = s => s + " belongs to me";
+            var toUpperVisitor = new ToUpperVisitor();
+            var expressed = toUpperVisitor.VisitAndConvert(magicSring, null);
+
+            var what = expressed.Compile().DynamicInvoke("the cheese");
+            Console.WriteLine(what);
         }
     }
 }
