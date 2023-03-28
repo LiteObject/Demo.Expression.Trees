@@ -12,6 +12,7 @@
 * Left Expression -> NodeType (Equal, NotEqual, etc.) -> Right Expression
  
 ## ExpressionVisitor
+* Traverses any expression tree, allowing us to view a current node or provided node in it's place
 * Read each piece of the expression and operates
 ---
 ## Expression Trees from Lambda Expressions
