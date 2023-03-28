@@ -8,6 +8,22 @@
 
 >A language is _homoiconic_ if a program written in it can be manipulated as data using the language, and thus the program's internal representation can be inferred just by reading the program itself. This property is often summarized by saying that the language treats code as data. - Wiki
 ---
+## Example:
+```csharp
+Example of an expression.
+Expression<Func<int, bool>> isNegativeExp = i => i < 0;
+Console.WriteLine(isNegativeExp.Body);
+
+/*
+ * Type: Func<int, bool>
+ * Expression: i < 0
+ * Lambda Operator: =>
+ * Parameter: Left of =>
+ * Body Expression: Right of =>
+ * Lambda Expression: i => i < 0
+ */
+```
+---
 ## BinaryExpression
 * Left Expression -> NodeType (Equal, NotEqual, etc.) -> Right Expression
  
