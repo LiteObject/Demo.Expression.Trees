@@ -53,7 +53,10 @@ style C fill:#004c4c,stroke:#fff,stroke-width:1px,color:#fff
     A(C# Code)-- Compiler -->B(MSIL Code);    
     B-- JIT -->C(Native Code);
 ```
-
 ---
-* Links
-  - [Expression Trees (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)
+## Alternatives
+* [DynamicMethod](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.emit.dynamicmethod?view=net-7.0)
+* [TypeBuilder](https://learn.microsoft.com/en-us/dotnet/api/system.reflection.emit.typebuilder?source=recommendations&view=net-7.0)
+---
+## Links
+* [Expression Trees (C#)](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/expression-trees/)

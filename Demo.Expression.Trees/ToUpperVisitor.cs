@@ -1,8 +1,6 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
-using Expression = System.Linq.Expressions.Expression;
 
-namespace Demo.MyExpression.Trees
+namespace Demo.DotNetExpressions
 {
     public class ToUpperVisitor : ExpressionVisitor
     {
@@ -13,10 +11,10 @@ namespace Demo.MyExpression.Trees
                 return base.Visit(node);
             }
 
-            if(node.Type == typeof(string))
+            if (node.Type == typeof(string))
             {
-                var toUpper = typeof(string).GetMethod("ToUpper", Type.EmptyTypes);
-                var methodCallExpression = Expression.Call(node, toUpper);
+                System.Reflection.MethodInfo? toUpper = typeof(string).GetMethod("ToUpper", Type.EmptyTypes);
+                MethodCallExpression methodCallExpression = Expression.Call(node, toUpper);
                 return methodCallExpression;
             }
 
