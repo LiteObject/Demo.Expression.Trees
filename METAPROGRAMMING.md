@@ -152,8 +152,52 @@ class Program
 3. The compiled assembly is loaded, and we use reflection to create an instance of the dynamically generated class (`DynamicClass`).
 4. The `Execute` method is called dynamically, printing `"Hello from dynamically generated code!"`.
 
-### Use Cases for Runtime Code Generation
+## Metaprogramming with Expression Trees in C#
+Expression Trees allow dynamic code generation by creating and compiling code at runtime. Unlike Roslyn (which compiles entire C# code snippets), Expression Trees generate and execute lambda expressions dynamically.
+
+### Example: Generating a Dynamic Function Using Expression Trees
+We’ll generate a method at runtime that takes two numbers and returns their sum.
+
+```csharp
+using System;
+using System.Linq.Expressions;
+
+class Program
+{
+    static void Main()
+    {
+        // Define parameters (x, y)
+        ParameterExpression paramX = Expression.Parameter(typeof(int), "x");
+        ParameterExpression paramY = Expression.Parameter(typeof(int), "y");
+
+        // Create the expression for (x + y)
+        BinaryExpression body = Expression.Add(paramX, paramY);
+
+        // Compile the expression into a delegate (Func<int, int, int>)
+        var lambda = Expression.Lambda<Func<int, int, int>>(body, paramX, paramY).Compile();
+
+        // Invoke the dynamically generated function
+        int result = lambda(5, 7);
+        Console.WriteLine($"5 + 7 = {result}");
+    }
+}
+
+```
+### How It Works:
+1. Create Parameters → Define `x` and `y` as inputs using `Expression.Parameter()`.
+2. Build an Expression → Construct the operation `x + y` using `Expression.Add()`.
+3. Compile to a Delegate → Convert the expression into an executable function with `Expression.Lambda().Compile()`.
+4. Invoke the Function → Call `lambda(5, 7)` dynamically, returning `12`.
+
+### Why Use Expression Trees?
+- **Performance Optimization** → Faster than Reflection because it compiles expressions into executable code.
+- **Dynamic Code Generation** → Modify logic at runtime without recompiling.
+- **Dynamic Query Builders** → Used in LINQ providers to translate queries into SQL.
+- **Rule Engines** → Dynamically modify business logic.
+
+## Use Cases for Runtime Code Generation
 - Scripting Engines (e.g., executing user-defined scripts in applications)
 - Dynamic Business Rules (changing logic without recompiling the main app)
 - Plugin Systems (loading external code modules at runtime)
 - Performance Optimizations (generating specialized code dynamically)
+
